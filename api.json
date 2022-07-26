@@ -1,0 +1,192 @@
+[{
+    "path":"/signup",
+    "method":"POST",
+    "endpoint":"signup",
+    "request:data":{
+        "name":{
+            "type":"String",
+            "required":true,
+            "unique":false
+        },
+        "email":{
+            "type":"String",
+            "required":true,
+            "unique":true
+        },
+        "password":{
+            "type": "String",
+            "max": 30,
+            "min":8,
+            "required": true
+        },
+        "bio":{
+            "type":"String",
+            "max":500,
+            "required":false
+        },
+        "username":{
+            "type":"String",
+            "max":50,
+            "required":true,
+            "unique":true
+        },
+        "userDisplayPicture":{
+            "type":"String",
+            "required":false
+        }
+    },
+    "response":{
+        "http status":"long",
+        "response_message":"String"
+    }
+
+},
+{
+    "path":"/signin",
+    "method":"POST",
+    "endpoint":"signin",
+    "request:data":{
+        "username":{
+            "type":"String",
+            "max":50,
+            "required":true,
+            "unique": true
+        },
+        "password":{
+            "type": "String",
+            "max": 30,
+            "min":8,
+            "required": true
+        },
+        "email":{
+            "type":"String",
+            "required":true,
+            "unique":true
+        }
+    },
+    "response":{
+        "http status":"long",
+        "response_message":"String"
+    }
+},
+{
+    "path":"/feed",
+    "endpoint":"feed",
+    "method":"GET",
+    "response:Data":{
+        "post_Id_array":"array",
+        "time":"long"
+    }
+
+
+},
+{
+    "path":"/my_profile",
+    "endpoint":"myprofile" ,
+    "method":"GET",
+    "request:data":{
+        "userID":"long"
+    },
+    "response:Data":{
+        "post_Id_array":"array",
+        "time":"long"
+    }
+
+},
+{
+    "path":"/post_img",
+    "endpoint":"imagePost",
+    "method":"POST",
+    "request:data":{
+        "userID":"long",
+        "caption":"String",
+        "url":"String"
+    },
+    "response":{
+        "http status":"long",
+        "response_message":"String"
+    }
+},
+{
+    "path":"/post_text",
+    "endpoint":"textPost",
+    "method":"POST",
+    "request:data":{
+        "text":"String"
+    },
+    "response":{
+        "http status":"long",
+        "response_message":"String"
+    }
+    
+},
+{
+    "path":"delete_post",
+    "endpoint":"DeletePost",
+    "method":"DELETE",
+    "request:data":{
+        "postid":"long",
+        "authorId":"long"
+    }
+    ,
+    "response":{
+        "http status":"long",
+        "response_message":"String"
+    }
+
+}
+,
+{
+    "endpoint":"post_comment",
+    "path":"/post_comment",
+    "method":"POST",
+    "request:data":{
+        "UserID":"long",
+        "postid":"long",
+        "time":"long", 
+        "comment_data":"String"
+
+    }
+
+}
+,
+{
+    "endpoint":"edit_comment",
+    "path": "/edit_comment",
+    "method":"PUT",
+    "request:data":{ 
+        "Commentid":"long"
+    },
+    "response":{
+        "edit_message":"String",
+        "edit_status":"long"
+    }
+}
+,
+{
+    "endpoint":"delete_comment",
+    "path": "/delete_comment",
+    "method":"PUT",
+    "request:data":{ 
+        "Commentid":"long"
+
+    }
+    ,
+    "response":{
+        "delete_message":"String",
+        "delete_status":"long"
+    }
+}
+,
+{
+    "endpoint":"edit_post",
+    "path": "/edit_post",
+    "method":"PUT",
+    "request:data":{
+        "postid":"long"
+
+    }
+}
+
+
+]
